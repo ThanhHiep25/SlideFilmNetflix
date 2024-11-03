@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.active-slide-info {
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.5s ease;
+  object-fit: cover;
+}
+
+.container-slide-dot {
+  display: flex;
+}
+
+.description {
+  padding: 40px;
+  position: relative;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.918),
+    rgba(0, 0, 0, 0.582),
+    #ffffff00
+  );
+}
+
+.description h2 {
+  margin: 0;
+  font-size: 70px;
+}
+
+.description p {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.description button {
+  display: flex;
+  align-self: center;
+  width: 150px;
+  font-size: 16px;
+}
+
+.description .time-des {
+  display: flex;
+  gap: 10px;
+}
+
+.time-des p {
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.685);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.time-des p:hover {
+  background: #ccccccaf;
+  scale: 1.1;
+}
+
+.slide img {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  gap: 20px;
+}
+
+.blurred img {
+  filter: blur(3px);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.active img {
+  filter: none;
+  opacity: 1;
+  scale: 1.6;
+}
+
+.carousel-dots {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 880px;
+  right: 300px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: -30px;
+  padding: 40px;
+}
+
+.dot.active {
+  background-color: orange;
+}
+
+/* Next and Previous Buttons */
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 780px;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.prev-button {
+  right: 700px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.title p:nth-child(4) {
+  width: 750px;
+  line-height: 1.5;
+}
+
+/* button */
+
+.button-box {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 20px;
+}
+
+.viewflim {
+  display: inline-flex;
+  align-items: center;
+  height: 80px;
+  width: 80px !important;
+  border-radius: 50%;
+  background: rgba(255, 22, 22, 0.726);
+  font-size: 0;
+  transition: all 0.5s ease;
+}
+
+.viewflim:hover {
+  height: 80px;
+  width: 160px !important;
+  border-radius: 10px;
+  background: #ff1a1a;
+  scale: 1.1;
+}
+
+.viewflim::after {
+  content: "Xem trailer";
+  font-size: 16px;
+  opacity: 0;
+  color: #fff; /* Màu chữ */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.viewflim:hover::after {
+  opacity: 1;
+}
+
+.dowload {
+  transition: all 0.5s ease;
+}
+
+.dowload:hover {
+  transform: translateY(-10px);
+  background: #92cbf5;
+}
+
+.share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px !important;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.share:hover {
+  transform: translateY(-10px);
+  background: #92cbf5;
+}
+
+/* Trailer  */
+
+.trailer-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+
+.trailer-content {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.trailer-content button {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #cccccc17;
+  top: -70px;
+  right: 0px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover{
+    scale: 1.2;
+    background: #cccccc;
+    color: black;
+  }
+}
+
+
+@media (min-width: 500px) {
+  /* For screens larger than 768px */
+  .carousel-dots {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 700px;
+    right: 300px;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dot-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -200px;
+    padding: 40px;
+  }
+  
+  
+  /* Next and Previous Buttons */
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 620px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+
+}
+

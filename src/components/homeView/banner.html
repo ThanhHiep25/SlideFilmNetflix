@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Shoe Store</title>
+        <style>
+        /* Carousel container */
+        .carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        /* Images within the carousel */
+        .carousel img {
+            width: 90%;
+            height: 550px;
+            cursor: pointer;
+            object-fit: fill;
+            display: none; /* Hide all images initially */
+        }
+
+        .carousel img.active {
+            display: block; /* Show the active image */
+        }
+
+        /* Navigation buttons */
+        .carousel .prev, .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel .prev {
+            left: 100px;
+        }
+
+        .carousel .next {
+            right: 100px;
+        }
+
+        /* Dots indicator */
+        .carousel-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background-color: #717171;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Carousel Section -->
+        <div class="carousel">
+            <img src="https://cdn.glitch.global/5fa4c5db-b24c-4bd9-92e6-d01df3df2b91/banner_NIKE.webp?v=1726290728738" alt="banner-img" class="baner-img active">
+            <img src="https://cdn.glitch.global/5fa4c5db-b24c-4bd9-92e6-d01df3df2b91/banner_CONVERSE.webp?v=1726290746025" alt="sale-img" class="baner-img">
+            <img src="https://cdn.glitch.global/5fa4c5db-b24c-4bd9-92e6-d01df3df2b91/banner_NEW_BALANCE.webp?v=1726293050687" alt="sale-img" class="baner-img">
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+        </div>
+        <!-- Dots indicators -->
+        <div class="carousel-dots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+        </div>
+        <script>
+            // JavaScript for Carousel
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.carousel img');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const totalImages = images.length;
+    
+            // Function to show image at specific index
+            function showImage(index) {
+                // Hide all images
+                images.forEach(img => img.classList.remove('active'));
+                // Remove 'active' from all dots
+                dots.forEach(dot => dot.classList.remove('active'));
+    
+                // Show the selected image and highlight the dot
+                images[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+    
+            // Show next image
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            }
+    
+            // Show previous image
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                showImage(currentIndex);
+            }
+    
+            // Event listeners for next/prev buttons
+            document.querySelector('.next').addEventListener('click', nextImage);
+            document.querySelector('.prev').addEventListener('click', prevImage);
+    
+            // Event listeners for dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', (event) => {
+                    currentIndex = parseInt(event.target.getAttribute('data-index'));
+                    showImage(currentIndex);
+                });
+            });
+    
+            // Auto-slide images every 3 seconds
+            setInterval(nextImage, 4000);
+        </script>
+    </body>
+</html>
