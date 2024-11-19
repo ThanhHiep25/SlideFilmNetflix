@@ -1,0 +1,118 @@
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 0, 0);
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 1) 24%,
+    rgba(196, 10, 10, 1) 100%
+  );
+
+  opacity: 0.8;
+}
+
+.box-login-blur {
+  background: rgba(240, 240, 240, 0.562);
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.box-av {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.box-av .avatar-login {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-login p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-login input {
+  width: 300px;
+  padding: 10px;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #ffffff8e;
+  font-size: 16px;
+}
+.form-login .lable-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-box {
+  padding-bottom: 20px;
+}
+
+.title-login {
+  font-size: 40px;
+  font-weight: bold;
+  color: #050303;
+  margin-bottom: 20px;
+  text-align: center;
+  background-image: linear-gradient(to right, #050303, #c40808);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-lgin {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+  background: #050303;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background: #ff0000;
+    color: #ffffff;
+    scale: 1.1;
+  }
+}
+
+.box-logo-login {
+  display: flex;
+  gap: 30px;
+}
+
+.box-logo-login span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  &:hover {
+    background: #d8d8d893;
+    scale: 1.1;
+  }
+}

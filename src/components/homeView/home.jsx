@@ -13,8 +13,11 @@ import {
   Share,
   VerifiedOutlined,
 } from "@mui/icons-material";
+import Menu from "../navigation/menu";
 
 const url = "https://654460405a0b4b04436c4cda.mockapi.io/film";
+
+
 
 function Home() {
   const [slide, setSlide] = useState([]);
@@ -46,6 +49,7 @@ function Home() {
     setActiveSlide((prev) =>
       prev === String(slide.length) ? "1" : String(Number(prev) + 1)
     );
+    
   };
 
   const prevSlide = () => {
@@ -53,6 +57,7 @@ function Home() {
       prev === "1" ? String(slide.length) : String(Number(prev) - 1)
     );
   };
+
 
   const toggleLike = (id) => {
     setLike((prevLike) => ({
@@ -121,7 +126,12 @@ function Home() {
         backgroundPosition: "center",
       }}
     >
-      <div className="blur"></div>
+     
+      <div className="blur"></div> 
+      <div className="menu-view">
+         <Menu/>
+      </div>
+     
       <div className="description">
         <h2>
           {activeMovie?.name} <VerifiedOutlined fontSize="large" />

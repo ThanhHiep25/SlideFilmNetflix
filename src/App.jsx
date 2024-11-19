@@ -1,10 +1,10 @@
 
-
-import Home from './components/homeView/home'
+import Appnavigation from './components/navigation/appnavigation'
+import "./index.css"
 function App() {
   return (
     <>
-      <Home/>
+      <Appnavigation/>
     </>
   )
 }
